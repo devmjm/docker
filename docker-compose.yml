@@ -9,7 +9,8 @@ services:
         condition: on-failure
         delay: 10s
         max_attempts: 3
-        placement:
-          constraints: [node.role == manager]
+        window: 120s
+      placement:
+        constraints: [node.role == manager]
     ports:
       - "8600:8600"
