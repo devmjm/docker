@@ -34,7 +34,7 @@ services:
     depends_on:
       - registry
   admin:
-    build: "springboot.azurecr.io/spring/docker_admin"
+    image: "springboot.azurecr.io/spring/docker_admin"
     deploy:
       mode: replicated
       replicas: 1
