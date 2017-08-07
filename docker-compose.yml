@@ -53,6 +53,7 @@ services:
       - registry
   carapp:
     image: "springboot.azurecr.io/spring/car_app"
+    deploy:
       mode: replicated
       replicas: 1
       restart_policy:
