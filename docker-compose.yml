@@ -56,14 +56,14 @@ services:
     deploy:
       mode: replicated
       replicas: 2
+      placement:
+        constraints: [node.role == worker]
     ports: 
       - "8080:8080"
     environment:
       - EUREKA_SERVICE_URL=http://40.83.182.214:8600/
     depends_on:
       - registry
-    placement:
-      constraints: [node.role == worker]
   viz:
     image: dockersamples/visualizer
     volumes:
