@@ -54,15 +54,7 @@ services:
   carapp:
     image: "springboot.azurecr.io/spring/car_app"
     deploy:
-      mode: replicated
-      replicas: 3
-      restart_policy:
-        condition: on-failure 
-        delay: 10s
-        max_attempts: 3
-        window: 120s
-      placement:
-        constraints: [node.role == worker]
+      mode: global
     ports: 
       - "8080:8080"
     environment:
