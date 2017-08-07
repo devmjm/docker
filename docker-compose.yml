@@ -55,7 +55,7 @@ services:
     image: "springboot.azurecr.io/spring/car_app"
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 3
       restart_policy:
         condition: on-failure 
         delay: 10s
