@@ -37,7 +37,7 @@ services:
     image: "springboot.azurecr.io/spring/docker_admin"
     deploy:
       mode: replicated
-      replicas: 3
+      replicas: 1
       restart_policy:
         condition: on-failure 
         delay: 10s
@@ -54,8 +54,7 @@ services:
   carapp:
     image: "springboot.azurecr.io/spring/car_app"
     deploy:
-      mode: replicated
-      replicas: 2
+      mode: global
       placement:
         constraints: [node.role == worker]
     ports: 
