@@ -52,7 +52,7 @@ services:
     depends_on:
       - registry
   carapp:
-    image: "mmcclennyregistry.azurecr.io/car-app-demo"
+    image: "springboot.azurecr.io/spring/car_app"
     deploy:
       mode: global
     ports: 
