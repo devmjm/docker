@@ -61,3 +61,12 @@ services:
       - EUREKA_SERVICE_URL=http://40.83.182.214:8600/
     depends_on:
       - registry
+  viz:
+    image: dockersamples/visualizer
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    ports:
+      - 9090:8080
