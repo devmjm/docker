@@ -63,6 +63,20 @@ services:
       - EUREKA_SERVICE_URL=http://40.83.182.214:8600/
     depends_on:
       - registry
+  vts:
+    image: "springboot.azurecr.io/spring/docker_vts"
+    deploy:
+      mode: global
+      placement:
+        constraints: [node.role == worker]
+    ports: 
+      - "8631:8631"
+    environment:
+      - EUREKA_SERVICE_URL=http://40.83.182.214:8600/
+    depends_on:
+      - registry
+      - postgres
+      - activemq
   viz:
     image: dockersamples/visualizer
     volumes:
