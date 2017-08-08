@@ -14,6 +14,8 @@ services:
         constraints: [node.role == manager]
     ports:
       - "8600:8600"
+    logging:
+      driver: syslog
   configuration:
     image: "springboot.azurecr.io/spring/docker_configuration"
     deploy:
@@ -77,6 +79,8 @@ services:
       - registry
       - postgres
       - activemq
+    logging:
+      driver: syslog
   viz:
     image: dockersamples/visualizer
     volumes:
