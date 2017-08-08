@@ -78,9 +78,9 @@ services:
       - POSTGRES_HOST=postgres
       - ACTIVEMQ_HOST=activemq
     depends_on:
-      - registry
       - postgres
       - activemq
+      - registry
   postgres:
    image: postgres
    ports:
