@@ -77,13 +77,12 @@ services:
       - /var/logs/vts:/opt/daimler/apps/vts/target/logs
     environment:
       - EUREKA_SERVICE_URL=http://40.83.182.214:8600/
+      - POSTGRES_HOST=postgres
+      - ACTIVEMQ_HOST=activemq
     depends_on:
       - registry
       - postgres
       - activemq
-    environment:
-      - POSTGRES_HOST=postgres
-      - ACTIVEMQ_HOST=activemq
   postgres:
    image: postgres
    ports:
