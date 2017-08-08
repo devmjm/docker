@@ -73,14 +73,29 @@ services:
         constraints: [node.role == worker]
     ports: 
       - "8631:8631"
+    volumes:
+      - /var/logs/vts:/opt/daimler/apps/vts/target/logs
     environment:
       - EUREKA_SERVICE_URL=http://40.83.182.214:8600/
     depends_on:
       - registry
       - postgres
       - activemq
-    logging:
-      driver: syslog
+    environment:
+      - POSTGRES_HOST=postgres
+      - ACTIVEMQ_HOST=activemq
+  postgres:
+   image: postgres
+   ports:
+    - "5432:5432"
+   environment:
+    - POSTGRES_DB=vts
+    - POSTGRES_USER=postgres
+    - POSTGRES_PASSWORD=postgres 
+  activemq:
+   image: webcenter/activemq
+   ports:
+    - "61616:61616"
   viz:
     image: dockersamples/visualizer
     volumes:
