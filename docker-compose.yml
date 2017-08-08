@@ -64,7 +64,7 @@ services:
     depends_on:
       - registry
   vts:
-    image: "springboot.azurecr.io/spring/docker_vts"
+    image: "springboot.azurecr.io/spring/docker_telematics"
     deploy:
       mode: global
       placement:
