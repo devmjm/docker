@@ -66,7 +66,7 @@ services:
   telematics:
     image: "springboot.azurecr.io/spring/docker_vts"
     volumes:
-      - /var/logs/vts
+      - /opt/daimler/apps/telematics
     deploy:
       mode: global
       placement:
