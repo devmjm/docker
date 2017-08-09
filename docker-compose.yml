@@ -63,7 +63,7 @@ services:
       - EUREKA_SERVICE_URL=http://registry:8600/
     depends_on:
       - registry
-  vts:
+  telematics:
     image: "springboot.azurecr.io/spring/docker_telematics"
     deploy:
       mode: global
