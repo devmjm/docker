@@ -48,7 +48,7 @@ services:
     ports:
       - "8602:8602"
     environment:
-      - EUREKA_SERVICE_URL=registry
+      - EUREKA_SERVICE_URL=http://registry:8600/
     depends_on:
       - registry
   carapp:
