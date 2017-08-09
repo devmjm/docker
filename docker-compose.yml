@@ -29,7 +29,7 @@ services:
     ports:
       - "8601:8601"
     environment:
-      - EUREKA_SERVICE_URL=http://40.83.182.214:8600/
+      - EUREKA_SERVICE_URL=registry:8600/
       - CONFIG_REPOSITORY=/repository/config-repository/
     depends_on:
       - registry
@@ -48,7 +48,7 @@ services:
     ports:
       - "8602:8602"
     environment:
-      - EUREKA_SERVICE_URL=http://40.83.182.214:8600/
+      - EUREKA_SERVICE_URL=registry:8600/
     depends_on:
       - registry
   carapp:
@@ -60,7 +60,7 @@ services:
     ports: 
       - "8080:8080"
     environment:
-      - EUREKA_SERVICE_URL=http://40.83.182.214:8600/
+      - EUREKA_SERVICE_URL=registry:8600/
     depends_on:
       - registry
   vts:
@@ -74,7 +74,7 @@ services:
     volumes:
       - /var/logs/vts:/opt/daimler/apps/vts/target/logs
     environment:
-      - EUREKA_SERVICE_URL=http://40.83.182.214:8600/
+      - EUREKA_SERVICE_URL=registry:8600/
       - POSTGRES_HOST=postgres
       - ACTIVEMQ_HOST=activemq
     depends_on:
