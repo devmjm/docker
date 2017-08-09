@@ -71,8 +71,6 @@ services:
         constraints: [node.role == worker]
     ports: 
       - "8631:8631"
-    volumes:
-      - /var/logs/vts:/opt/daimler/apps/vts/target/logs
     environment:
       - EUREKA_SERVICE_URL=http://registry:8600/
       - POSTGRES_HOST=postgres
