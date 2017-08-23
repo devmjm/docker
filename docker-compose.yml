@@ -61,6 +61,7 @@ services:
       - "8080:8080"
     environment:
       - EUREKA_SERVICE_URL=http://registry:8600/
+      - CONFIG_SERVER_URI=https://github.com/devmjm/config-server.git
     depends_on:
       - registry
   viz:
