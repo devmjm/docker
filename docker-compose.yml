@@ -30,7 +30,7 @@ services:
       - "8601:8601"
     environment:
       - EUREKA_SERVICE_URL=http://registry:8600/
-      - CONFIG_REPOSITORY=/repository/config-repository/
+      - CONFIG_REPOSITORY=https://github.com/devmjm/config-server.git
     depends_on:
       - registry
   admin:
@@ -63,36 +63,6 @@ services:
       - EUREKA_SERVICE_URL=http://registry:8600/
     depends_on:
       - registry
-  telematics:
-    image: "springboot.azurecr.io/spring/docker_vts"
-    volumes:
-      - /var/logs/vts:/opt/daimler/apps/vts/target/logs
-    deploy:
-      mode: global
-      placement:
-        constraints: [node.role == worker]
-    ports: 
-      - "8631:8631"
-    environment:
-      - EUREKA_SERVICE_URL=http://registry:8600/
-      - POSTGRES_HOST=postgres
-      - ACTIVEMQ_HOST=activemq
-    depends_on:
-      - postgres
-      - activemq
-      - registry
-  postgres:
-   image: postgres
-   ports:
-    - "5432:5432"
-   environment:
-    - POSTGRES_DB=vts
-    - POSTGRES_USER=postgres
-    - POSTGRES_PASSWORD=postgres 
-  activemq:
-   image: webcenter/activemq
-   ports:
-    - "61616:61616"
   viz:
     image: dockersamples/visualizer
     volumes:
